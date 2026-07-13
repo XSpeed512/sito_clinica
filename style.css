@@ -8,16 +8,16 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Colori */
-  --color-white: #ffffff;
-  --color-light-grey: #f4f6f8;
-  --color-grey: #e5e5e5;
-  --color-grey-dark: #9aa3ab;
-  --color-text: #2c333a;
-  --color-text-light: #626c76;
-  --color-primary: #0e5aa7;      /* blu sanitario */
-  --color-primary-dark: #0b4884;
-  --color-primary-light: #eaf2fa; /* azzurro molto chiaro */
-  --color-accent: #4fa9e8;
+  --color-white: #fffdf8;
+  --color-light-grey: #f5f0e7;
+  --color-grey: #e8dec7;
+  --color-grey-dark: #9a7f60;
+  --color-text: #2f2418;
+  --color-text-light: #6b5846;
+  --color-primary: #7a5c3b;      /* marrone caldo presente nel logo */
+  --color-primary-dark: #53381e;
+  --color-primary-light: #f0e6d3; /* crema chiara */
+  --color-accent: #c49c67;
 
   /* Tipografia */
   --font-base: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -41,9 +41,9 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
-  --shadow-sm: 0 2px 8px rgba(14, 90, 167, 0.06);
-  --shadow-md: 0 8px 24px rgba(14, 90, 167, 0.10);
-  --shadow-lg: 0 16px 40px rgba(14, 90, 167, 0.14);
+  --shadow-sm: 0 2px 8px rgba(122, 92, 59, 0.08);
+  --shadow-md: 0 8px 24px rgba(122, 92, 59, 0.14);
+  --shadow-lg: 0 16px 40px rgba(122, 92, 59, 0.18);
 
   /* Layout */
   --container-width: 1180px;
@@ -288,6 +288,26 @@ textarea:focus-visible {
   gap: var(--space-md);
 }
 
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  display: block;
+  width: auto;
+  height: 54px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(14, 90, 167, 0.14));
+}
+
+.footer-logo-link .logo-image {
+  height: 64px;
+  filter: none;
+}
+
 .main-nav ul {
   display: flex;
   gap: var(--space-lg);
@@ -356,17 +376,21 @@ textarea:focus-visible {
 }
 
 .hero-image {
+  display:flex;
   position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   inset: 0;
-  border-radius: 0;
-  border: none;
-  min-height: 0;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11, 32, 55, 0.55) 0%, rgba(11, 72, 132, 0.72) 100%);
+  background: linear-gradient(180deg, rgba(56, 38, 21, 0.58) 0%, rgba(122, 92, 59, 0.72) 100%);
 }
 
 .hero-content {
@@ -633,7 +657,7 @@ textarea:focus-visible {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #c6d9ec;
+  background: #d9c7a7;
   border: none;
   padding: 0;
   transition: var(--transition);
@@ -727,7 +751,7 @@ textarea:focus-visible {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(14, 90, 167, 0.12);
+  box-shadow: 0 0 0 3px rgba(122, 92, 59, 0.16);
   outline: none;
 }
 
@@ -743,7 +767,7 @@ textarea:focus-visible {
    16. FOOTER
    -------------------------------------------------------------------------- */
 .site-footer {
-  background: #10233a;
+  background: #3f2a18;
   color: rgba(255, 255, 255, 0.78);
   padding-top: var(--space-xl);
 }
