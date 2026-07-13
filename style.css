@@ -158,6 +158,39 @@ textarea:focus-visible {
   width: fit-content;
 }
 
+/* Logo reale (sostituisce il placeholder tratteggiato) */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  display: block;
+  width: auto;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: drop-shadow(0 2px 8px rgba(122, 92, 59, 0.14));
+}
+
+/* Nel footer lo sfondo è scuro: il logo ha sfondo chiaro,
+   quindi lo racchiudiamo in un riquadro bianco per leggibilità */
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-white);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-logo-link .logo-image {
+  height: 64px;
+  filter: none;
+}
+
 .ph-icon-box {
   flex-shrink: 0;
   width: 44px;
@@ -165,7 +198,7 @@ textarea:focus-visible {
   min-height: 0;
   border-radius: var(--radius-sm);
   background: var(--color-primary-light);
-  border: 2px dashed #b9d4ec;
+  border: 2px dashed #d9c7a7;
   color: var(--color-primary);
 }
 
@@ -288,26 +321,6 @@ textarea:focus-visible {
   gap: var(--space-md);
 }
 
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logo-image {
-  display: block;
-  width: auto;
-  height: 54px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(14, 90, 167, 0.14));
-}
-
-.footer-logo-link .logo-image {
-  height: 64px;
-  filter: none;
-}
-
 .main-nav ul {
   display: flex;
   gap: var(--space-lg);
@@ -376,14 +389,11 @@ textarea:focus-visible {
 }
 
 .hero-image {
-  display:flex;
   position: absolute;
-  align-items: center;
-  justify-content: center;
-  background-image: url('');
-  background-repeat: no-repeat;
-  background-position: center;
   inset: 0;
+  border-radius: 0;
+  border: none;
+  min-height: 0;
 }
 
 .hero-overlay {
@@ -698,68 +708,33 @@ textarea:focus-visible {
    -------------------------------------------------------------------------- */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "map info"
-    "map form";
+  grid-template-columns: 1.1fr 1fr;
   gap: var(--space-lg);
+  align-items: stretch;
 }
 
-.contact-map { grid-area: map; min-height: 100%; }
-.contact-info { grid-area: info; }
+.contact-map { min-height: 340px; }
+
+.contact-info {
+  background: var(--color-light-grey);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
 
 .contact-list li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eceef1;
+  padding: 10px 0;
+  border-bottom: 1px solid #e3e7ea;
   font-size: var(--fs-sm);
   color: var(--color-text-light);
 }
 
 .contact-list strong { color: var(--color-text); }
 
-.contact-form {
-  grid-area: form;
-  background: var(--color-light-grey);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-}
-
-.form-group { margin-bottom: var(--space-sm); }
-
-.form-group label {
-  display: block;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid #d6dce1;
-  background: var(--color-white);
-  font-family: inherit;
-  font-size: var(--fs-sm);
-  color: var(--color-text);
-  transition: border-color var(--transition), box-shadow var(--transition);
-  resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(122, 92, 59, 0.16);
-  outline: none;
-}
-
-.form-feedback {
-  margin: var(--space-sm) 0 0;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--color-primary);
-  min-height: 1.2em;
+.contact-quick-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
 }
 
 /* --------------------------------------------------------------------------
@@ -776,13 +751,6 @@ textarea:focus-visible {
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: var(--space-lg);
   padding-bottom: var(--space-xl);
-}
-
-.footer-brand .ph-logo-footer {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: var(--color-white);
-  margin-bottom: var(--space-sm);
 }
 
 .footer-brand p { color: rgba(255, 255, 255, 0.6); font-size: var(--fs-sm); }
@@ -837,7 +805,7 @@ textarea:focus-visible {
 .back-to-top {
   position: fixed;
   right: var(--space-md);
-  bottom: var(--space-md);
+  bottom: 88px; /* sopra la barra contatti fissa */
   width: 46px;
   height: 46px;
   border-radius: 50%;
@@ -864,7 +832,307 @@ textarea:focus-visible {
 .back-to-top:hover { background: var(--color-primary-dark); }
 
 /* --------------------------------------------------------------------------
-   18. RESPONSIVE — TABLET (≤ 1024px)
+   18. BREADCRUMB (pagine interne reparto)
+   -------------------------------------------------------------------------- */
+.breadcrumb {
+  padding: 0.85rem 0;
+  background: var(--color-light-grey);
+  border-bottom: 1px solid #eceef1;
+}
+
+.breadcrumb ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
+  column-gap: 8px;
+  column-gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.4;
+}
+
+.breadcrumb a { color: var(--color-primary); font-weight: 600; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb li[aria-current="page"] { color: var(--color-text-light); }
+
+/* --------------------------------------------------------------------------
+   19. PAGINA REPARTO (dettaglio)
+   -------------------------------------------------------------------------- */
+.reparto-hero {
+  padding: var(--space-xl) 0;
+  background: var(--color-light-grey);
+}
+
+.reparto-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reparto-hero .eyebrow { margin-bottom: var(--space-xs); }
+
+.reparto-hero-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); flex-wrap: wrap; }
+
+.reparto-body {
+  padding: var(--space-xxl) 0;
+}
+
+.reparto-body-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xl);
+}
+
+.reparto-content h2 { margin-top: var(--space-lg); }
+.reparto-content h2:first-child { margin-top: 0; }
+
+.reparto-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px var(--space-md);
+  margin: var(--space-sm) 0 var(--space-lg);
+}
+
+.reparto-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+}
+
+.reparto-list li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.reparto-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.reparto-sidebar {
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-md));
+  background: var(--color-light-grey);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.reparto-sidebar h3 { margin-bottom: var(--space-sm); }
+.reparto-sidebar ul { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--space-md); }
+.reparto-sidebar li { font-size: var(--fs-sm); color: var(--color-text-light); display: flex; justify-content: space-between; border-bottom: 1px solid #e3e7ea; padding-bottom: 8px; }
+.reparto-sidebar li strong { color: var(--color-text); }
+
+.related-departments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.related-departments a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  border: 1px solid #e3e7ea;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.related-departments a:hover,
+.related-departments a.is-current {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------------
+   20. MODALE PROFILO MEDICO
+   -------------------------------------------------------------------------- */
+.doctor-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(47, 36, 24, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.doctor-modal-overlay.is-open { opacity: 1; visibility: visible; }
+
+.doctor-modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: var(--space-lg);
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(16px) scale(0.98);
+  transition: transform var(--transition);
+}
+
+.doctor-modal-overlay.is-open .doctor-modal {
+  transform: translateY(0) scale(1);
+}
+
+.doctor-modal-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-light-grey);
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.doctor-modal-close:hover { background: var(--color-primary-light); color: var(--color-primary); }
+
+.doctor-modal-header {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.doctor-modal-header .ph-image {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+}
+
+.doctor-modal-header h3 { margin-bottom: 2px; }
+.doctor-modal-role { color: var(--color-primary); font-weight: 600; font-size: var(--fs-sm); }
+
+.doctor-modal-section { margin-bottom: var(--space-md); }
+.doctor-modal-section h4 {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.doctor-modal-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.doctor-modal-tags span {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.doctor-modal-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
+
+/* --------------------------------------------------------------------------
+   21. BARRA CONTATTI FISSA (WhatsApp + Gmail)
+   -------------------------------------------------------------------------- */
+.contact-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 150;
+  background: var(--color-white);
+  border-top: 1px solid #e3e7ea;
+  box-shadow: 0 -6px 20px rgba(122, 92, 59, 0.10);
+  padding: 10px var(--space-md);
+}
+
+.contact-bar-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.contact-bar-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-right: auto;
+  display: none;
+}
+
+.contact-bar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  transition: var(--transition);
+  flex: 1;
+  max-width: 240px;
+  justify-content: center;
+}
+
+.contact-bar-btn svg { flex-shrink: 0; }
+
+.contact-bar-btn.whatsapp {
+  background: #25d366;
+  color: var(--color-white);
+}
+
+.contact-bar-btn.whatsapp:hover {
+  background: #1eb857;
+  transform: translateY(-2px);
+}
+
+.contact-bar-btn.gmail {
+  background: var(--color-white);
+  color: var(--color-text);
+  border: 2px solid #e3e7ea;
+}
+
+.contact-bar-btn.gmail:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Spinge il contenuto per non far coprire il footer dalla barra fissa */
+.has-contact-bar { padding-bottom: 76px; }
+
+/* --------------------------------------------------------------------------
+   22. RESPONSIVE — TABLET (≤ 1024px)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -879,19 +1147,33 @@ textarea:focus-visible {
 
   .contact-layout {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "map"
-      "info"
-      "form";
   }
 
   h1 { font-size: 2.2rem; }
 }
 
 /* --------------------------------------------------------------------------
-   19. RESPONSIVE — MOBILE (≤ 720px)
+   23. RESPONSIVE — MOBILE (≤ 720px)
    -------------------------------------------------------------------------- */
 @media (max-width: 720px) {
+  .reparto-hero-grid,
+  .reparto-body-grid { grid-template-columns: 1fr; }
+
+  .reparto-sidebar { position: static; }
+
+  .reparto-list { grid-template-columns: 1fr; }
+
+  .reparto-gallery { grid-template-columns: repeat(2, 1fr); }
+
+  .related-departments { grid-template-columns: 1fr; }
+
+  .doctor-modal-header { flex-direction: column; text-align: center; }
+
+  .contact-bar-btn span.label-text { display: none; }
+  .contact-bar-btn { max-width: 60px; padding: 12px; border-radius: 50%; }
+  .contact-bar-inner { gap: var(--space-sm); }
+
+
   :root {
     --space-xl: 2.75rem;
     --space-xxl: 3.5rem;

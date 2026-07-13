@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prototipo</title>
+<title>Wireframe Clinica Privata — Prototipo</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="has-contact-bar">
 
 <!-- ============================================= -->
 <!-- HEADER -->
@@ -14,8 +14,8 @@
 <header class="site-header" id="site-header">
   <div class="container header-inner">
 
-    <a href="#top" class="logo-link" aria-label="Torna alla home">
-      <img src="./logo.png" alt="Logo clinica" class="logo-image">
+    <a href="#top" class="logo-link" aria-label="Studio Medico - torna alla home">
+      <img src="images/logo.jpeg" alt="Studio Medico" class="logo-image">
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
@@ -45,7 +45,16 @@
   <!-- HERO -->
   <!-- ============================================= -->
   <section class="hero">
-    <div class="hero-image" aria-hidden="true"> </div>
+    <div class="hero-image ph-box ph-image" aria-hidden="true">
+      <span class="ph-icon">
+        <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <circle cx="9" cy="10" r="1.8"/>
+          <path d="M3 16l5-5 4 4 3-3 6 6" />
+        </svg>
+      </span>
+      <span class="ph-label">IMAGE</span>
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
@@ -81,7 +90,7 @@
       </div>
 
       <div class="split-text">
-        <span class="eyebrow">Lorem Ipsum</span>
+        <span class="eyebrow">Chi siamo?</span>
         <h2>Dolor sit amet consectetur adipisicing elit</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
@@ -122,7 +131,7 @@
           <div class="card-body">
             <h3>Medicina estetica</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-1.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
 
@@ -141,7 +150,7 @@
           <div class="card-body">
             <h3>Chirurgia dermatologica</h3>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-2.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
 
@@ -160,7 +169,7 @@
           <div class="card-body">
             <h3>Psicologia</h3>
             <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-3.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
 
@@ -179,7 +188,7 @@
           <div class="card-body">
             <h3>Osteopatia</h3>
             <p>Ut enim ad minima veniam quis nostrum exercitationem ullam corporis.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-4.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
 
@@ -198,7 +207,7 @@
           <div class="card-body">
             <h3>Massoterapia</h3>
             <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-5.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
 
@@ -217,7 +226,7 @@
           <div class="card-body">
             <h3>Terapia del dolore</h3>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
-            <a href="#" class="btn btn-text">Approfondisci →</a>
+            <a href="reparto-6.html" class="btn btn-text">Approfondisci →</a>
           </div>
         </article>
       </div>
@@ -274,7 +283,16 @@
           </div>
           <h3>Lorem Ipsum</h3>
           <p class="doctor-role">Dolor sit amet</p>
-          <a href="#" class="btn btn-outline btn-small">Profilo</a>
+          <button
+            type="button"
+            class="btn btn-outline btn-small doctor-profile-trigger"
+            data-name="Lorem Ipsum"
+            data-role="Dolor sit amet"
+            data-bio="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            data-tags="Lorem,Ipsum,Dolor"
+            data-phone="+39 000 000 0000"
+            data-email="lorem.ipsum@example.com"
+          >Profilo</button>
         </article>
 
         <article class="doctor-card">
@@ -289,7 +307,16 @@
           </div>
           <h3>Consectetur Adipisicing</h3>
           <p class="doctor-role">Elit sed do</p>
-          <a href="#" class="btn btn-outline btn-small">Profilo</a>
+          <button
+            type="button"
+            class="btn btn-outline btn-small doctor-profile-trigger"
+            data-name="Consectetur Adipisicing"
+            data-role="Elit sed do"
+            data-bio="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi."
+            data-tags="Elit,Sed,Do"
+            data-phone="+39 000 000 0000"
+            data-email="consectetur.adipisicing@example.com"
+          >Profilo</button>
         </article>
 
         <article class="doctor-card">
@@ -304,7 +331,16 @@
           </div>
           <h3>Eiusmod Tempor</h3>
           <p class="doctor-role">Incididunt ut</p>
-          <a href="#" class="btn btn-outline btn-small">Profilo</a>
+          <button
+            type="button"
+            class="btn btn-outline btn-small doctor-profile-trigger"
+            data-name="Eiusmod Tempor"
+            data-role="Incididunt ut"
+            data-bio="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi."
+            data-tags="Eiusmod,Tempor,Labore"
+            data-phone="+39 000 000 0000"
+            data-email="eiusmod.tempor@example.com"
+          >Profilo</button>
         </article>
 
         <article class="doctor-card">
@@ -319,7 +355,16 @@
           </div>
           <h3>Labore Et Dolore</h3>
           <p class="doctor-role">Magna aliqua</p>
-          <a href="#" class="btn btn-outline btn-small">Profilo</a>
+          <button
+            type="button"
+            class="btn btn-outline btn-small doctor-profile-trigger"
+            data-name="Labore Et Dolore"
+            data-role="Magna aliqua"
+            data-bio="At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti."
+            data-tags="Labore,Dolore,Magna"
+            data-phone="+39 000 000 0000"
+            data-email="labore.dolore@example.com"
+          >Profilo</button>
         </article>
       </div>
     </div>
@@ -418,7 +463,7 @@
               <span class="ph-box ph-image round avatar"><span class="ph-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/></svg></span></span>
               <div>
                 <cite>Lorem Ipsum</cite>
-                <span class="testimonial-role">Paziente reparto ...</span>
+                <span class="testimonial-role">Paziente reparto Dolor</span>
               </div>
             </footer>
           </blockquote>
@@ -430,7 +475,7 @@
               <span class="ph-box ph-image round avatar"><span class="ph-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/></svg></span></span>
               <div>
                 <cite>Sit Amet</cite>
-                <span class="testimonial-role">Paziente reparto ...</span>
+                <span class="testimonial-role">Paziente reparto Consectetur</span>
               </div>
             </footer>
           </blockquote>
@@ -442,7 +487,7 @@
               <span class="ph-box ph-image round avatar"><span class="ph-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/></svg></span></span>
               <div>
                 <cite>Adipisicing Elit</cite>
-                <span class="testimonial-role">Paziente reparto ...</span>
+                <span class="testimonial-role">Paziente reparto Eiusmod</span>
               </div>
             </footer>
           </blockquote>
@@ -557,41 +602,64 @@
           <ul class="contact-list">
             <li><strong>Indirizzo:</strong> Lorem ipsum dolor sit, 123 — Amet</li>
             <li><strong>Telefono:</strong> +39 000 000 0000</li>
-            <li><strong>Email:</strong> ex@example.com</li>
-            <li><strong>Orari:</strong> Lun – Ven, 08:00 – 20:00</li>
+            <li><strong>Email:</strong> lorem.ipsum@example.com</li>
+            <li><strong>Orari:</strong> Lorem – Ipsum, 08:00 – 20:00</li>
           </ul>
+
+          <div class="contact-quick-actions">
+            <a href="https://wa.me/390000000000" target="_blank" rel="noopener" class="btn btn-primary">Scrivici su WhatsApp</a>
+            <a href="mailto:lorem.ipsum@example.com" class="btn btn-outline">Scrivici una email</a>
+          </div>
         </div>
-
-        <form class="contact-form" id="contact-form" novalidate>
-          <h3>Invia un messaggio</h3>
-
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" placeholder="Lorem Ipsum" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Telefono</label>
-            <input type="tel" id="phone" name="phone" placeholder="+39 000 000 0000">
-          </div>
-
-          <div class="form-group">
-            <label for="message">Messaggio</label>
-            <textarea id="message" name="message" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-full">Invia messaggio</button>
-          <p class="form-feedback" id="form-feedback" role="status"></p>
-        </form>
 
       </div>
     </div>
   </section>
+
+  <!-- ============================================= -->
+  <!--            MODALE PROFILO MEDICO              -->
+  <!-- ============================================= -->
+  <div class="doctor-modal-overlay" id="doctor-modal-overlay" aria-hidden="true">
+    <div class="doctor-modal" role="dialog" aria-modal="true" aria-labelledby="doctor-modal-name">
+      <button type="button" class="doctor-modal-close" id="doctor-modal-close" aria-label="Chiudi">✕</button>
+
+      <div class="doctor-modal-header">
+        <div class="ph-box ph-image round">
+          <span class="ph-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="ph-label">FOTO</span>
+        </div>
+        <div>
+          <h3 id="doctor-modal-name">Lorem Ipsum</h3>
+          <p class="doctor-modal-role" id="doctor-modal-role">Dolor sit amet</p>
+        </div>
+      </div>
+
+      <div class="doctor-modal-section">
+        <h4>Biografia</h4>
+        <p id="doctor-modal-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div class="doctor-modal-section">
+        <h4>Specializzazioni</h4>
+        <div class="doctor-modal-tags" id="doctor-modal-tags"></div>
+      </div>
+
+      <div class="doctor-modal-section">
+        <h4>Contatti diretti</h4>
+        <p style="margin-bottom:4px;">Tel: <span id="doctor-modal-phone">+39 000 000 0000</span></p>
+        <p style="margin-bottom:0;">Email: <span id="doctor-modal-email">lorem.ipsum@example.com</span></p>
+      </div>
+
+      <div class="doctor-modal-actions">
+        <a href="#contatti" class="btn btn-primary btn-full" id="doctor-modal-cta">Prenota una visita</a>
+      </div>
+    </div>
+  </div>
 
 </main>
 
@@ -602,8 +670,8 @@
   <div class="container footer-grid">
 
     <div class="footer-brand">
-      <a href="#top" class="logo-link footer-logo-link" aria-label="Torna alla home">
-        <img src="logo.png" alt="Logo clinica" class="logo-image">
+      <a href="#top" class="logo-link footer-logo-link" aria-label="Torna alla home" >
+        <img src="images/logo.jpeg" alt="Studio Medico" class="logo-image">
       </a>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
       <div class="social-row">
@@ -615,7 +683,7 @@
     </div>
 
     <div class="footer-links">
-      <h4>Lorem Ipsum</h4>
+      <h4>Aree</h4>
       <ul>
         <li><a href="#chi-siamo">Chi siamo</a></li>
         <li><a href="#servizi">Servizi</a></li>
@@ -627,10 +695,12 @@
     <div class="footer-links">
       <h4>Reparti</h4>
       <ul>
-        <li><a href="#">Lorem ipsum</a></li>
-        <li><a href="#">Dolor sit</a></li>
-        <li><a href="#">Amet consectetur</a></li>
-        <li><a href="#">Adipisicing</a></li>
+        <li><a href="reparto-1.html">Medicina estetica</a></li>
+        <li><a href="reparto-2.html">Chirurgia dermatologica</a></li>
+        <li><a href="reparto-3.html">Psicologia</a></li>
+        <li><a href="reparto-4.html">Osteopatia</a></li>
+        <li><a href="reparto-5.html">Massoterapia</a></li>
+        <li><a href="reparto-6.html">Terapia del dolore</a></li>
       </ul>
     </div>
 
@@ -639,7 +709,7 @@
       <ul>
         <li>Lorem ipsum dolor sit, 123</li>
         <li>+39 000 000 0000</li>
-        <li>ex@example.com</li>
+        <li>lorem.ipsum@example.com</li>
       </ul>
       <a href="#contatti" class="btn btn-outline btn-small footer-cta">Contattaci</a>
     </div>
@@ -659,6 +729,30 @@
 </footer>
 
 <a href="#top" class="back-to-top" id="back-to-top" aria-label="Torna in alto">↑</a>
+
+<!-- ============================================= -->
+<!-- BARRA FISSA CONTATTI RAPIDI (WhatsApp / Gmail) -->
+<!-- ============================================= -->
+<div class="contact-bar" role="complementary" aria-label="Contatti rapidi">
+  <div class="contact-bar-inner">
+    <span class="contact-bar-label">Hai bisogno di aiuto? Scrivici subito</span>
+
+    <a href="https://wa.me/390000000000" target="_blank" rel="noopener" class="contact-bar-btn whatsapp" aria-label="Scrivici su WhatsApp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.52.31.07.11.07.63-.17 1.31z"/>
+      </svg>
+      <span class="label-text">WhatsApp</span>
+    </a>
+
+    <a href="mailto:lorem.ipsum@example.com" class="contact-bar-btn gmail" aria-label="Scrivici una email">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/>
+        <path d="M3.5 6l8.5 7 8.5-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="label-text">Email</span>
+    </a>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

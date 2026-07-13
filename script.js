@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initStatsCounter();
   initTestimonialSlider();
-  initContactForm();
+  initDoctorModal();
   initBackToTop();
 });
 
@@ -141,26 +141,69 @@ function initTestimonialSlider() {
 }
 
 /* --------------------------------------------------------------------------
-   5. FORM CONTATTI — validazione base e messaggio di conferma (placeholder)
+   5. MODALE PROFILO MEDICO — apertura/chiusura e popolamento dinamico
    -------------------------------------------------------------------------- */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const feedback = document.getElementById('form-feedback');
-  if (!form || !feedback) return;
+function initDoctorModal() {
+  const overlay = document.getElementById('doctor-modal-overlay');
+  const closeBtn = document.getElementById('doctor-modal-close');
+  const triggers = document.querySelectorAll('.doctor-profile-trigger');
+  if (!overlay || !closeBtn || !triggers.length) return;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  const nameEl = document.getElementById('doctor-modal-name');
+  const roleEl = document.getElementById('doctor-modal-role');
+  const bioEl = document.getElementById('doctor-modal-bio');
+  const tagsEl = document.getElementById('doctor-modal-tags');
+  const phoneEl = document.getElementById('doctor-modal-phone');
+  const emailEl = document.getElementById('doctor-modal-email');
 
-    if (!form.checkValidity()) {
-      feedback.textContent = 'Compila tutti i campi obbligatori (placeholder di validazione).';
-      feedback.style.color = '#c0392b';
-      return;
-    }
+  let lastFocusedTrigger = null;
 
-    // In questo prototipo non viene inviato alcun dato reale.
-    feedback.textContent = 'Messaggio placeholder inviato correttamente. Grazie!';
-    feedback.style.color = 'var(--color-primary)';
-    form.reset();
+  function openModal(trigger) {
+    // Popola il modale con i dati (data-*) presi dal pulsante cliccato
+    nameEl.textContent = trigger.dataset.name || 'Lorem Ipsum';
+    roleEl.textContent = trigger.dataset.role || '';
+    bioEl.textContent = trigger.dataset.bio || '';
+    phoneEl.textContent = trigger.dataset.phone || '';
+    emailEl.textContent = trigger.dataset.email || '';
+
+    tagsEl.innerHTML = '';
+    (trigger.dataset.tags || '')
+      .split(',')
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .forEach((tag) => {
+        const span = document.createElement('span');
+        span.textContent = tag;
+        tagsEl.appendChild(span);
+      });
+
+    lastFocusedTrigger = trigger;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // blocca lo scroll dietro il modale
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedTrigger) lastFocusedTrigger.focus();
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => openModal(trigger));
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  // Chiude cliccando sull'overlay (fuori dal box) o con il tasto Esc
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
   });
 }
 
