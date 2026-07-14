@@ -269,8 +269,8 @@
             data-role="Dolor sit amet"
             data-bio="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             data-tags="Lorem,Ipsum,Dolor"
-            data-phone="+39 000 000 0000"
-            data-email="lorem.ipsum@example.com"
+            data-phone="366.9531364"
+            data-email="mirawankelmuth@hotmail.it"
           >Profilo</button>
         </article>
 
@@ -529,14 +529,14 @@
           <h3>Lorem ipsum</h3>
           <ul class="contact-list">
             <li><strong>Indirizzo:</strong> Lorem ipsum dolor sit, 123 — Amet</li>
-            <li><strong>Telefono:</strong> +39 000 000 0000</li>
-            <li><strong>Email:</strong> lorem.ipsum@example.com</li>
+            <li><strong>Telefono:</strong> 366.9531364</li>
+            <li><strong>Email:</strong> mirawankelmuth@hotmail.it</li>
             <li><strong>Orari:</strong> Lorem – Ipsum, 08:00 – 20:00</li>
           </ul>
 
           <div class="contact-quick-actions">
             <a href="https://wa.me/390000000000" target="_blank" rel="noopener" class="btn btn-primary">Scrivici su WhatsApp</a>
-            <a href="mailto:lorem.ipsum@example.com" class="btn btn-outline">Scrivici una email</a>
+            <a href="mailto:mirawankelmuth@hotmail.it" class="btn btn-outline">Scrivici una email</a>
           </div>
         </div>
 
@@ -579,8 +579,8 @@
 
       <div class="doctor-modal-section">
         <h4>Contatti diretti</h4>
-        <p style="margin-bottom:4px;">Tel: <span id="doctor-modal-phone">+39 000 000 0000</span></p>
-        <p style="margin-bottom:0;">Email: <span id="doctor-modal-email">lorem.ipsum@example.com</span></p>
+        <p style="margin-bottom:4px;">Tel: <span id="doctor-modal-phone">366.9531364</span></p>
+        <p style="margin-bottom:0;">Email: <span id="doctor-modal-email">mirawankelmuth@hotmail.it</span></p>
       </div>
 
       <div class="doctor-modal-actions">
@@ -594,68 +594,7 @@
 <!-- ============================================= -->
 <!-- FOOTER -->
 <!-- ============================================= -->
-<footer class="site-footer">
-  <div class="container footer-grid">
-
-    <div class="footer-brand">
-      <a href="#top" class="logo-link footer-logo-link" aria-label="Torna alla home" >
-        <img src="images/logo.jpeg" alt="Studio Medico" class="logo-image">
-      </a>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
-      <div class="social-row">
-        <a href="#" class="ph-box ph-social" aria-label="Social 1">FB</a>
-        <a href="#" class="ph-box ph-social" aria-label="Social 2">IG</a>
-        <a href="#" class="ph-box ph-social" aria-label="Social 3">IN</a>
-        <a href="#" class="ph-box ph-social" aria-label="Social 4">YT</a>
-      </div>
-    </div>
-
-    <div class="footer-links">
-      <h4>Aree</h4>
-      <ul>
-        <li><a href="#chi-siamo">Chi siamo</a></li>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#medici">Medici</a></li>
-        <li><a href="#news">News</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-links">
-      <h4>Reparti</h4>
-      <ul>
-        <li><a href="reparto-1.html">Medicina estetica</a></li>
-        <li><a href="reparto-2.html">Chirurgia dermatologica</a></li>
-        <li><a href="reparto-3.html">Psicologia</a></li>
-        <li><a href="reparto-4.html">Osteopatia</a></li>
-        <li><a href="reparto-5.html">Massoterapia</a></li>
-        <li><a href="reparto-6.html">Terapia del dolore</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contatti</h4>
-      <ul>
-        <li>Lorem ipsum dolor sit, 123</li>
-        <li>+39 000 000 0000</li>
-        <li>lorem.ipsum@example.com</li>
-      </ul>
-      <a href="#contatti" class="btn btn-outline btn-small footer-cta">Contattaci</a>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>© 2026 Lorem Ipsum Clinic Placeholder. Tutti i diritti riservati.</p>
-      <ul class="footer-legal">
-        <li><a href="#">Privacy Lorem</a></li>
-        <li><a href="#">Cookie Ipsum</a></li>
-        <li><a href="#">Note legali Dolor</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
+<div id="footer-placeholder"></div>
 <a href="#top" class="back-to-top" id="back-to-top" aria-label="Torna in alto">↑</a>
 
 <!-- ============================================= -->
@@ -672,7 +611,7 @@
       <span class="label-text">WhatsApp</span>
     </a>
 
-    <a href="mailto:lorem.ipsum@example.com" class="contact-bar-btn gmail" aria-label="Scrivici una email">
+    <a href="mailto:mirawankelmuth@hotmail.it" class="contact-bar-btn gmail" aria-label="Scrivici una email">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
         <rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/>
         <path d="M3.5 6l8.5 7 8.5-7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -683,5 +622,12 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
+</script>
 </body>
 </html>
