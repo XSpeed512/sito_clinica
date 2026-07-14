@@ -837,10 +837,12 @@ textarea:focus-visible {
 .breadcrumb ol {
   display: flex;
   align-items: center;
-  gap: 8px;
+  row-gap: var(--space-xs);
   font-size: var(--fs-sm);
   color: var(--color-text-light);
   flex-wrap: wrap;
+  column-gap: var(--space-sm);
+  list-style: none;
 }
 
 .breadcrumb a { color: var(--color-primary); font-weight: 600; }
