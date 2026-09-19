@@ -370,7 +370,6 @@
       <div class="section-heading">
         <span class="eyebrow">MiraMultiMedica</span>
         <h2>Contattaci</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor.</p>
       </div>
 
       <div class="contact-layout">
@@ -384,20 +383,27 @@
         </div>
 
         <div class="contact-info">
-          <h3>Informazioni di contatto</h3>
+          <h3>Lorem ipsum</h3>
           <ul class="contact-list">
             <li><strong>Indirizzo:</strong> Via Taranto 87/A, 74015 Martina Franca, TA</li>
             <li><strong>Telefono:</strong> 366.9531364</li>
-            <li><strong>Email:</strong> mirawankelmuth@hotmail.it</li>
+            <li><strong>Email:</strong> <span id="clinic-email-text">mirawankelmuth@hotmail.it</span>
+              <button type="button" class="copy-btn" id="copy-email-btn" aria-label="Copia indirizzo email" title="Copia email">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="9" y="9" width="12" height="12" rx="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+            </li>
             <li><strong>Orari:</strong> Lorem – Ipsum, 08:00 – 20:00</li>
           </ul>
-
+ 
           <div class="contact-quick-actions">
             <a href="https://wa.me/393669531364" target="_blank" rel="noopener" class="btn btn-primary">Scrivici su WhatsApp</a>
-            <a href="mailto:mirawankelmuth@hotmail.it" class="btn btn-outline">Scrivici una email</a>
+            <button type="button" class="btn btn-outline email-modal-trigger">Scrivici una email</button>
           </div>
         </div>
-
+ 
       </div>
     </div>
   </section>
@@ -438,6 +444,39 @@
     </a>
   </div>
 </div>
+
+<!-- ============================================= -->
+<!-- POPUP INVIO EMAIL -->
+<!-- ============================================= -->
+<div class="email-modal-overlay" id="email-modal-overlay" aria-hidden="true">
+  <div class="email-modal" role="dialog" aria-modal="true" aria-labelledby="email-modal-title">
+    <button type="button" class="email-modal-close" id="email-modal-close" aria-label="Chiudi">✕</button>
+ 
+    <h3 id="email-modal-title">Scrivici una email</h3>
+    <p class="email-modal-subtitle">Compila i campi: si aprirà il tuo programma di posta con il messaggio già pronto da inviare.</p>
+ 
+    <form id="email-modal-form" novalidate>
+      <div class="form-group">
+        <label for="email-modal-name">Nome</label>
+        <input type="text" id="email-modal-name" name="name" placeholder="Il tuo nome" required>
+      </div>
+ 
+      <div class="form-group">
+        <label for="email-modal-email">La tua email (per ricontattarti)</label>
+        <input type="email" id="email-modal-email" name="email" placeholder="nome@esempio.it" required>
+      </div>
+ 
+      <div class="form-group">
+        <label for="email-modal-message">Messaggio</label>
+        <textarea id="email-modal-message" name="message" rows="4" placeholder="Scrivi qui la tua richiesta..." required></textarea>
+      </div>
+ 
+      <button type="submit" class="btn btn-primary btn-full">Apri email e invia</button>
+      <p class="email-modal-feedback" id="email-modal-feedback" role="status"></p>
+    </form>
+  </div>
+</div>
+ 
 <script src="script.js"></script>
 <script>
   fetch('footer.html')
