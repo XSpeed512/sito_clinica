@@ -8,33 +8,7 @@
 </head>
 <body class="has-contact-bar" id="top-reparto">
 
-<header class="site-header" id="site-header">
-  <div class="container header-inner">
-
-    <a href="index.html" class="logo-link" aria-label="Studio Medico - torna alla home">
-      <img src="images/logo.jpeg" alt="Studio Medico" class="logo-image">
-    </a>
-
-    <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
-      <ul>
-        <li><a href="index.html#chi-siamo">Chi siamo</a></li>
-        <li><a href="index.html#servizi">Servizi</a></li>
-        <li><a href="index.html#medici">Medici</a></li>
-        <li><a href="index.html#perche">Perché sceglierci</a></li>
-        <li><a href="index.html#news">News</a></li>
-        <li><a href="index.html#contatti">Contatti</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a href="index.html#contatti" class="btn btn-primary btn-small">Prenota ora</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-  </div>
-</header>
+<div id="header-placeholder"></div>
 
 <main>
 
@@ -59,7 +33,6 @@
   <section class="reparto-hero">
     <div class="container reparto-hero-grid">
       <div>
-        <span class="eyebrow">Reparto 04</span>
         <h1>Osteopatia</h1>
         <p>
           Valutazione osteopatica e trattamenti manuali personalizzati per accompagnare il recupero della mobilità e dell'equilibrio funzionale del corpo.
@@ -70,16 +43,7 @@
         </div>
       </div>
       <div>
-        <div class="ph-box ph-image ratio-4-3">
-            <span class="ph-icon">
-              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <circle cx="9" cy="10" r="1.8"/>
-                <path d="M3 16l5-5 4 4 3-3 6 6" />
-              </svg>
-            </span>
-            <span class="ph-label">Placeholder immagine</span>
-          </div>
+        <img src="images/osteopatia.png" alt="Osteopatia" >
       </div>
     </div>
   </section>
@@ -107,36 +71,11 @@
 
         <h2>Galleria</h2>
         <div class="reparto-gallery">
-          <div class="ph-box ph-image ratio-1-1">
-            <span class="ph-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <circle cx="9" cy="10" r="1.8"/>
-                <path d="M3 16l5-5 4 4 3-3 6 6" />
-              </svg>
-            </span>
-            <span class="ph-label">IMAGE</span>
-          </div>
-          <div class="ph-box ph-image ratio-1-1">
-            <span class="ph-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <circle cx="9" cy="10" r="1.8"/>
-                <path d="M3 16l5-5 4 4 3-3 6 6" />
-              </svg>
-            </span>
-            <span class="ph-label">IMAGE</span>
-          </div>
-          <div class="ph-box ph-image ratio-1-1">
-            <span class="ph-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <circle cx="9" cy="10" r="1.8"/>
-                <path d="M3 16l5-5 4 4 3-3 6 6" />
-              </svg>
-            </span>
-            <span class="ph-label">IMAGE</span>
-          </div>
+          <img src="images/osteopatia1.jpeg" alt="Osteopatia ">
+          <img src="images/osteopatia2.jpeg" alt="Osteopatia ">
+          <img src="images/osteopatia3.jpeg" alt="Osteopatia ">
+          <img src="images/osteopatia4.jpeg" alt="Osteopatia ">
+          
         </div>
       </div>
 
@@ -197,6 +136,12 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
+    });
+
+  fetch('./header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
     });
 </script>
 </body>

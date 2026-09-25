@@ -8,34 +8,7 @@
 </head>
 <body class="has-contact-bar">
 
-<!-- ============================================= -->
-<!-- HEADER -->
-<!-- ============================================= -->
-<header class="site-header" id="site-header">
-  <div class="container header-inner">
-
-    <a href="#top" class="logo-link" aria-label="Studio Medico - torna alla home">
-      <img src="images/logo.jpeg" alt="Studio Medico" class="logo-image">
-    </a>
-
-    <nav class="main-nav" id="main-nav" aria-label="Navigazione principale">
-      <ul>
-        <li><a href="#perche">Perché sceglierci</a></li>
-        <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#medici">Medici</a></li>
-        <li><a href="#contatti">Contatti</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a href="#contatti" class="btn btn-primary btn-small">Prenota ora</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-  </div>
-</header>
+<div id="header-placeholder"></div>
 
 <main id="top">
 
@@ -211,16 +184,7 @@
 
         <!-- Card 9 -->
         <article class="card">
-          <div class="ph-box ph-image ratio-16-9">
-            <span class="ph-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.4">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <circle cx="9" cy="10" r="1.8"/>
-                <path d="M3 16l5-5 4 4 3-3 6 6" />
-              </svg>
-            </span>
-            <span class="ph-label">IMAGE</span>
-          </div>
+          <img src="images/psicologia.jpeg" alt="Psicologia">
           <div class="card-body">
             <h3>Psicologia</h3>
             <p>Supporto psicologico e psicoterapia per adulti, coppie e gruppi, in presenza e online, con un approccio integrato.</p>
@@ -400,7 +364,7 @@
  
           <div class="contact-quick-actions">
             <a href="https://wa.me/393669531364" target="_blank" rel="noopener" class="btn btn-primary">Scrivici su WhatsApp</a>
-            <button type="button" class="btn btn-outline email-modal-trigger">Scrivici una email</button>
+            <a href="mailto:mirawankelmuth@hotmail.it" class="btn btn-outline">Scrivici una email</a>
           </div>
         </div>
  
@@ -445,37 +409,6 @@
   </div>
 </div>
 
-<!-- ============================================= -->
-<!-- POPUP INVIO EMAIL -->
-<!-- ============================================= -->
-<div class="email-modal-overlay" id="email-modal-overlay" aria-hidden="true">
-  <div class="email-modal" role="dialog" aria-modal="true" aria-labelledby="email-modal-title">
-    <button type="button" class="email-modal-close" id="email-modal-close" aria-label="Chiudi">✕</button>
- 
-    <h3 id="email-modal-title">Scrivici una email</h3>
-    <p class="email-modal-subtitle">Compila i campi: si aprirà il tuo programma di posta con il messaggio già pronto da inviare.</p>
- 
-    <form id="email-modal-form" novalidate>
-      <div class="form-group">
-        <label for="email-modal-name">Nome</label>
-        <input type="text" id="email-modal-name" name="name" placeholder="Il tuo nome" required>
-      </div>
- 
-      <div class="form-group">
-        <label for="email-modal-email">La tua email (per ricontattarti)</label>
-        <input type="email" id="email-modal-email" name="email" placeholder="nome@esempio.it" required>
-      </div>
- 
-      <div class="form-group">
-        <label for="email-modal-message">Messaggio</label>
-        <textarea id="email-modal-message" name="message" rows="4" placeholder="Scrivi qui la tua richiesta..." required></textarea>
-      </div>
- 
-      <button type="submit" class="btn btn-primary btn-full">Apri email e invia</button>
-      <p class="email-modal-feedback" id="email-modal-feedback" role="status"></p>
-    </form>
-  </div>
-</div>
  
 <script src="script.js"></script>
 <script>
@@ -484,6 +417,13 @@
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
+
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    });
 </script>
+
 </body>
 </html>
