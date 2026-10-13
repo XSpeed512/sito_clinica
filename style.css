@@ -239,6 +239,10 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
+.review-link:hover {
+  transform: translateY(2px);
+}
+
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
@@ -415,14 +419,17 @@ textarea:focus-visible {
 .hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
   max-width: 700px;
+  margin-inline: auto;
   color: var(--color-white);
   padding-top: var(--space-xl);
   padding-bottom: var(--space-xl);
   animation: fade-up 0.7s ease both;
+  text-align: center;
 }
 
-.hero-content .eyebrow { color: var(--color-accent); }
+.hero-content .eyebrow { color: var(--color-accent);   }
 
 .hero-content h1 { color: var(--color-white); }
 
@@ -432,7 +439,7 @@ textarea:focus-visible {
   max-width: 560px;
 }
 
-.hero-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
+.hero-actions { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-md); }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
@@ -1291,4 +1298,3 @@ textarea:focus-visible {
   color: #2e8b57; /* verde conferma */
   background: rgba(46, 139, 87, 0.12);
 }
-

@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialSlider();
   initDoctorModal();
   initBackToTop();
-
+  initCopyEmail();
+  initGmailCompose();
 });
 
 /* --------------------------------------------------------------------------
@@ -223,4 +224,70 @@ function initBackToTop() {
   window.addEventListener('scroll', toggleVisibility, { passive: true });
 }
 
+/* --------------------------------------------------------------------------
+   COPIA EMAIL NEGLI APPUNTI — icona accanto al contatto email
+   -------------------------------------------------------------------------- */
+function initCopyEmail() {
+  const btn = document.getElementById('copy-email-btn');
+  const emailText = document.getElementById('clinic-email-text');
+  if (!btn || !emailText) return;
+ 
+  btn.addEventListener('click', async () => {
+    const value = emailText.textContent.trim();
+ 
+    try {
+      // Metodo moderno (richiede contesto sicuro: https o localhost)
+      await navigator.clipboard.writeText(value);
+    } catch (err) {
+      // Fallback per browser più vecchi o contesti non sicuri
+      const textarea = document.createElement('textarea');
+      textarea.value = value;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (fallbackErr) {
+        console.error('Copia negli appunti non riuscita:', fallbackErr);
+      }
+      document.body.removeChild(textarea);
+    }
+ 
+    // Feedback visivo: icona diventa spunta per ~1.5s
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '✓';
+    btn.classList.add('copied');
+    btn.setAttribute('aria-label', 'Email copiata');
+ 
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('copied');
+      btn.setAttribute('aria-label', 'Copia indirizzo email');
+    }, 1600);
+  });
+}
 
+/* --------------------------------------------------------------------------
+   EMAIL — apre Gmail con destinatario e messaggio precompilati
+   -------------------------------------------------------------------------- */
+function initGmailCompose() {
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    const link = event.target.closest('a[href^="mailto:"]');
+    if (!link) return;
+
+    const recipient = new URL(link.href).pathname;
+    const composeUrl = new URL('https://mail.google.com/mail/');
+
+    composeUrl.searchParams.set('view', 'cm');
+    composeUrl.searchParams.set('fs', '1');
+    composeUrl.searchParams.set('to', recipient);
+    composeUrl.searchParams.set('su', 'Richiesta di informazioni');
+
+
+    event.preventDefault();
+    window.open(composeUrl.toString(), '_blank', 'noopener,noreferrer');
+  });
+}
