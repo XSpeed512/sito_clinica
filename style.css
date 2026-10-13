@@ -1251,13 +1251,9 @@ textarea:focus-visible {
   .hero { min-height: 100vh; }
 }
 
-/* =========================================================================
-   DA AGGIUNGERE ALLA FINE DI style.css
-   Popup invio email + icona "copia email"
-   ========================================================================= */
 
 /* --------------------------------------------------------------------------
-   ICONA "COPIA EMAIL" accanto al contatto
+   ICONA "COPIA EMAIL" 
    -------------------------------------------------------------------------- */
 .contact-list li {
   display: flex;
