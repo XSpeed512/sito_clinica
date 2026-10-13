@@ -391,6 +391,12 @@ textarea:focus-visible {
   min-height: 0;
 }
 
+.hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-image img {
   display: block;
   width: 100%;
@@ -1285,5 +1291,4 @@ textarea:focus-visible {
   color: #2e8b57; /* verde conferma */
   background: rgba(46, 139, 87, 0.12);
 }
-
 
