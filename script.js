@@ -33,23 +33,26 @@ function initHeaderScroll() {
    2. NAV MOBILE — apertura/chiusura menu hamburger
    -------------------------------------------------------------------------- */
 function initMobileNav() {
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('main-nav');
-  if (!toggle || !nav) return;
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    toggle.classList.toggle('is-open', isOpen);
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
+    const toggle = event.target.closest('#nav-toggle');
+    const nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      return;
+    }
 
-  // Chiude il menu quando si clicca un link (utile su mobile)
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    if (!event.target.closest('#main-nav a') || !nav) return;
+
+    nav.classList.remove('is-open');
+    const navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
   });
 }
 

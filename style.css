@@ -431,8 +431,8 @@ textarea:focus-visible {
 
 .hero-content .eyebrow { color: var(--color-accent);   }
 
-.hero-content h1 { color: var(--color-white); }
-
+.hero-content h1 { color: var(--color-white); margin: 0 0 0 0; }
+.hero-content p { display: inline-block; font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.08em; color: var(--color-white); margin-bottom: var(--space-xs);}
 .hero-text {
   color: rgba(255, 255, 255, 0.88);
   font-size: var(--fs-md);
@@ -973,8 +973,26 @@ textarea:focus-visible {
 
 .reparto-sidebar h3 { margin-bottom: var(--space-sm); }
 .reparto-sidebar ul { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--space-md); }
-.reparto-sidebar li { font-size: var(--fs-sm); color: var(--color-text-light); display: flex; justify-content: space-between; border-bottom: 1px solid #e3e7ea; padding-bottom: 8px; }
-.reparto-sidebar li strong { color: var(--color-text); }
+.reparto-sidebar li {
+  font-size: var(--fs-sm);
+  color: var(--color-text-light);
+  display: grid;
+  grid-template-columns: minmax(72px, 90px) minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  border-bottom: 1px solid #e3e7ea;
+  padding-bottom: 8px;
+}
+.reparto-sidebar li span,
+.reparto-sidebar li strong {
+  min-width: 0;
+}
+.reparto-sidebar li strong {
+  color: var(--color-text);
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
 .related-departments {
   display: grid;
