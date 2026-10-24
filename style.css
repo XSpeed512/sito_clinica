@@ -837,6 +837,23 @@ textarea:focus-visible {
 
 .footer-bottom p { margin: 0; }
 
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.privacy-policy-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: inherit;
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.privacy-policy-trigger:hover { color: var(--color-primary); }
+
 .footer-bottom-inner {
   display: flex;
   align-items: center;
@@ -1118,6 +1135,45 @@ textarea:focus-visible {
 
 .doctor-modal-actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
 
+.privacy-modal {
+  width: min(900px, calc(100% - 32px));
+  max-width: none;
+  max-height: min(90vh, 900px);
+  padding: var(--space-md);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.privacy-modal::backdrop { background: rgba(47, 36, 24, 0.7); }
+
+.privacy-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.privacy-modal-header h2 { margin: 0; }
+
+.privacy-policy-frame {
+  display: block;
+  width: 100%;
+  height: min(70vh, 680px);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+}
+
+.privacy-policy-page { padding: var(--space-md); }
+.privacy-policy-page h1 { font-size: var(--fs-xl); }
+.privacy-policy-page h2 { margin-top: var(--space-lg); font-size: var(--fs-lg); }
+.privacy-policy-page h3 { margin-top: var(--space-md); }
+.privacy-policy-page ul { list-style: disc; margin: 0 0 var(--space-sm) 1.5rem; }
+.privacy-policy-page a { color: var(--color-primary); text-decoration: underline; }
+
 /* --------------------------------------------------------------------------
    21. BARRA CONTATTI FISSA (WhatsApp + Gmail)
    -------------------------------------------------------------------------- */
@@ -1282,6 +1338,9 @@ textarea:focus-visible {
   .footer-grid { grid-template-columns: 1fr; }
 
   .footer-bottom-inner { flex-direction: column; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
+  .privacy-modal { padding: var(--space-sm); }
+  .privacy-policy-frame { height: 72vh; }
 
   h1 { font-size: 1.85rem; }
   h2 { font-size: 1.5rem; }

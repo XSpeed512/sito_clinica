@@ -58,7 +58,18 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 MiraMultiMedica. Tutti i diritti riservati </p>
-      <p>P.iva: 02929540736</p>
+      <div class="footer-legal">
+        <p>P.iva: 02929540736</p>
+        <p>&bull;</p>
+        <button type="button" class="privacy-policy-trigger" id="privacy-policy-open">Privacy Policy</button>
+      </div>
     </div>
+    </div>
+    <dialog class="privacy-modal" id="privacy-policy-modal" aria-labelledby="privacy-modal-title">
+      <div class="privacy-modal-header">
+        <h2 id="privacy-modal-title">Privacy Policy</h2>
+        <button type="button" class="doctor-modal-close" id="privacy-policy-close" aria-label="Chiudi la Privacy Policy">&times;</button>
+      </div>
+      <iframe class="privacy-policy-frame" src="privacy-policy.html" title="Informativa sul trattamento dei dati personali"></iframe>
+    </dialog>
 </footer>
-

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initTestimonialSlider();
   initDoctorModal();
+  initPrivacyModal();
   initBackToTop();
   initCopyEmail();
   initGmailCompose();
@@ -209,6 +210,26 @@ function initDoctorModal() {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   PRIVACY POLICY — apertura e chiusura del popup nel footer
+   -------------------------------------------------------------------------- */
+function initPrivacyModal() {
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    const dialog = document.getElementById('privacy-policy-modal');
+    if (!(dialog instanceof HTMLDialogElement)) return;
+
+    if (event.target.closest('#privacy-policy-open')) {
+      dialog.showModal();
+    } else if (event.target.closest('#privacy-policy-close')) {
+      dialog.close();
+    } else if (event.target === dialog) {
+      dialog.close();
+    }
   });
 }
 
