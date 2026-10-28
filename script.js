@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPrivacyModal();
   initBackToTop();
   initCopyEmail();
+  initCopyTelephone();
   initGmailCompose();
 });
 
@@ -288,6 +289,44 @@ function initCopyEmail() {
       btn.innerHTML = originalHTML;
       btn.classList.remove('copied');
       btn.setAttribute('aria-label', 'Copia indirizzo email');
+    }, 1600);
+  });
+}
+
+function initCopyTelephone() {
+  const btn = document.getElementById('copy-telephone-btn');
+  const telText = document.getElementById('clinic-telephone-text');
+  if (!btn || !telText) return;
+
+  btn.addEventListener('click', async () => {
+    const value = telText.textContent.trim();
+
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch (err) {
+      const textarea = document.createElement('textarea');
+      textarea.value = value;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (fallbackErr) {
+        console.error('Copia negli appunti non riuscita:', fallbackErr);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '✓';
+    btn.classList.add('copied');
+    btn.setAttribute('aria-label', 'Numero di telefono copiato');
+
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('copied');
+      btn.setAttribute('aria-label', 'Copia numero di telefono');
     }, 1600);
   });
 }

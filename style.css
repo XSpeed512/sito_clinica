@@ -243,6 +243,10 @@ textarea:focus-visible {
   transform: translateY(2px);
 }
 
+.review-link {
+  text-decoration: underline;
+}
+
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-white);
@@ -748,6 +752,12 @@ textarea:focus-visible {
   min-height: 340px; 
   overflow: hidden;
   border-radius: var(--radius-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contact-map:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
 }
 
 .contact-map iframe {
@@ -1001,7 +1011,7 @@ textarea:focus-visible {
   font-size: var(--fs-sm);
   color: var(--color-text-light);
   display: grid;
-  grid-template-columns: minmax(72px, 90px) minmax(0, 1fr);
+  grid-template-columns: minmax(72px, 90px) minmax(0, 1fr) auto;
   gap: 10px;
   align-items: start;
   border-bottom: 1px solid #e3e7ea;
@@ -1010,6 +1020,7 @@ textarea:focus-visible {
 .reparto-sidebar li span,
 .reparto-sidebar li strong {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 .reparto-sidebar li strong {
   color: var(--color-text);
@@ -1286,7 +1297,15 @@ textarea:focus-visible {
   .doctor-modal-header { flex-direction: column; text-align: center; }
 
   .contact-bar-btn span.label-text { display: none; }
-  .contact-bar-btn { max-width: 60px; padding: 12px; border-radius: 50%; }
+  .contact-bar-btn {
+    flex: 0 0 48px;
+    width: 48px;
+    min-width: 48px;
+    max-width: none;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+  }
   .contact-bar-inner { gap: var(--space-sm); }
 
 
