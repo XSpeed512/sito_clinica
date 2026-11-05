@@ -341,7 +341,12 @@ function initGmailCompose() {
     const link = event.target.closest('a[href^="mailto:"]');
     if (!link) return;
 
-    const recipient = new URL(link.href).pathname;
+    // Su telefono/tablet lascia il comportamento nativo: si apre l'app di posta
+    const isMobile = /Android|iPhone|iPad|iPod|Mobi/i.test(navigator.userAgent) ||
+      window.matchMedia('(pointer: coarse)').matches;
+    if (isMobile) return;
+
+    const recipient = decodeURIComponent(new URL(link.href).pathname);
     const composeUrl = new URL('https://mail.google.com/mail/');
 
     composeUrl.searchParams.set('view', 'cm');
